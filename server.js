@@ -32,11 +32,7 @@ mongoose.connect('mongodb+srv://iamnotjoby:<your_password>@sarveshacluster9.c5y6
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
-// 👉 OR this if you're running MongoDB locally:
-// mongoose.connect('mongodb://localhost:27017/myDatabase', {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true
-// })
+
 .then(() => console.log('✅ MongoDB connected'))
 .catch(err => console.error('❌ MongoDB connection error:', err));
 
