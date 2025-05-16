@@ -1,24 +1,46 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
-const fs = require('fs');
 const app = express();
 const PORT = 3000;
 
+// Mongoose Models
+const contactSchema = new mongoose.Schema({
+  name: String,
+  email: String,
+  message: String,
+});
 
+const projectSchema = new mongoose.Schema({
+  title: String,
+  description: String,
+  github: String,
+});
+
+const Contact = mongoose.model('Contact', contactSchema);
+const Project = mongoose.model('Project', projectSchema);
+
+// Middleware
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// MongoDB Connection (Choose ONE only)
 
-mongoose.connect('mongodb+srv://iamnotjoby:sarveshacluster9.c5y6ihi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster9'
-  
-  , {useNewUrlParser: true,
-  useUnifiedTopology: true})
+// 👉 Use this if you're using MongoDB Atlas (Cloud):
+mongoose.connect('mongodb+srv://iamnotjoby:<your_password>@sarveshacluster9.c5y6ihi.mongodb.net/yourDB?retryWrites=true&w=majority&appName=Cluster9', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+// 👉 OR this if you're running MongoDB locally:
+// mongoose.connect('mongodb://localhost:27017/myDatabase', {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// })
 .then(() => console.log('✅ MongoDB connected'))
 .catch(err => console.error('❌ MongoDB connection error:', err));
 
-
+// Routes
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public/index.html')));
 app.get('/aboutme', (req, res) => res.sendFile(path.join(__dirname, 'public/aboutme.html')));
 app.get('/projects', (req, res) => res.sendFile(path.join(__dirname, 'public/projects.html')));
@@ -26,25 +48,7 @@ app.get('/music', (req, res) => res.sendFile(path.join(__dirname, 'public/music.
 app.get('/contacxout', (req, res) => res.sendFile(path.join(__dirname, 'public/contacxout.html')));
 app.get('/xoutbiodata', (req, res) => res.sendFile(path.join(__dirname, 'public/xoutbiodata.html')));
 
-
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
-
-
-mongoose.connect('mongodb://localhost:27017/myDatabase', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
-.then(() => console.log('✅ MongoDB connected'))
-.catch(err => console.error('❌ MongoDB connection error:', err));
-
-
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public/index.html')));
-app.get('/projects', (req, res) => res.sendFile(path.join(__dirname, 'public/projects.html')));
-app.get('/contacxout', (req, res) => res.sendFile(path.join(__dirname, 'public/contacxout.html')));
-
-// Contact submission
+// Contact form submission
 app.post('/contacxout', async (req, res) => {
   const { name, email, message } = req.body;
   if (!name || !email || !message) {
@@ -61,7 +65,7 @@ app.post('/contacxout', async (req, res) => {
   }
 });
 
-// Project submission
+// Project form submission
 app.post('/submit-project', async (req, res) => {
   const { title, description, github } = req.body;
   if (!title || !description || !github) {
@@ -78,31 +82,7 @@ app.post('/submit-project', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => console.log(`🚀 Server running at http://localhost:${PORT}`));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Start server
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
-
-
-
-
-
-
