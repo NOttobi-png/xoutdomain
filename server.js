@@ -37,7 +37,7 @@ mongoose.connect('mongodb+srv://iamnotjoby:<your_password>@sarveshacluster9.c5y6
 .catch(err => console.error('❌ MongoDB connection error:', err));
 
 // Routes
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public/index.html')));
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
 app.get('/aboutme', (req, res) => res.sendFile(path.join(__dirname, 'public/aboutme.html')));
 app.get('/projects', (req, res) => res.sendFile(path.join(__dirname, 'public/projects.html')));
 app.get('/music', (req, res) => res.sendFile(path.join(__dirname, 'public/music.html')));
