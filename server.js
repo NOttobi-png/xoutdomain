@@ -11,10 +11,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
-mongoose.connect('mongodb+srv://iamnotjoby.sarveshacluster9.c5y6ihi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster9')
+mongoose.connect('mongodb+srv://iamnotjoby.sarveshacluster9.c5y6ihi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster9'
   
   , {useNewUrlParser: true,
-  useUnifiedTopology: true}
+  useUnifiedTopology: true})
 .then(() => console.log('✅ MongoDB connected'))
 .catch(err => console.error('❌ MongoDB connection error:', err));
 
