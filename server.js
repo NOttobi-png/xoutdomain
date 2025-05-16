@@ -21,7 +21,7 @@ const Contact = mongoose.model('Contact', contactSchema);
 const Project = mongoose.model('Project', projectSchema);
 
 // Middleware
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname)));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -37,12 +37,12 @@ mongoose.connect('mongodb+srv://iamnotjoby:<your_password>@sarveshacluster9.c5y6
 .catch(err => console.error('❌ MongoDB connection error:', err));
 
 // Routes
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
-app.get('/aboutme', (req, res) => res.sendFile(path.join(__dirname, 'public','aboutme.html')));
-app.get('/projects', (req, res) => res.sendFile(path.join(__dirname, 'public','projects.html')));
-app.get('/music', (req, res) => res.sendFile(path.join(__dirname, 'public','music.html')));
-app.get('/contacxout', (req, res) => res.sendFile(path.join(__dirname, 'public','contacxout.html')));
-app.get('/xoutbiodata', (req, res) => res.sendFile(path.join(__dirname, 'public','xoutbiodata.html')));
+app.get('/', (req, res) => res.sendFile(path.join(__dirname,  'index.html')));
+app.get('/aboutme', (req, res) => res.sendFile(path.join(__dirname, 'aboutme.html')));
+app.get('/projects', (req, res) => res.sendFile(path.join(__dirname, 'projects.html')));
+app.get('/music', (req, res) => res.sendFile(path.join(__dirname, 'music.html')));
+app.get('/contacxout', (req, res) => res.sendFile(path.join(__dirname, 'contacxout.html')));
+app.get('/xoutbiodata', (req, res) => res.sendFile(path.join(__dirname, 'xoutbiodata.html')));
 
 // Contact form submission
 app.post('/contacxout', async (req, res) => {
