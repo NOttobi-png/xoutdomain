@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Form - Sarvesh P Jothy</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0b0b0b 0%, #3a3a3a 40%, #bfa14d 80%, #c0c0c0 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #d4d4d4;
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(255, 215, 0, 0.25) 0%, transparent 70%),
+        radial-gradient(circle at 50% 80%, rgba(192, 192, 192, 0.15) 0%, transparent 70%);
+      animation: shimmer 10s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: 0% 0%, 100% 100%; }
+      100% { background-position: 100% 100%, 0% 0%; }
+    }
+
+    .contact-form {
+      position: relative;
+      width: 90vw;
+      max-width: 700px;
+      min-height: 70vh;
+      background: #1a1a1a;
+      border-radius: 20px;
+      padding: 50px 60px;
+      box-shadow: 0 0 20px #bfa14d99, 0 0 50px #c0c0c099 inset;
+      border: 2px solid #bfa14d;
+      z-index: 1;
+      box-sizing: border-box;
+      color: #d4d4d4;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .contact-form h2 {
+      font-size: 42px;
+      font-weight: 700;
+      color: #d4af37;
+      text-align: center;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 0 0 8px #bfa14d;
+    }
+
+    label {
+      font-size: 18px;
+      color: #bfa14d;
+      display: block;
+      margin: 18px 0 8px;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1.5px solid #555;
+      background-color: #222;
+      color: #ddd;
+      font-size: 16px;
+      box-sizing: border-box;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      resize: vertical;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #d4af37;
+      box-shadow: 0 0 8px #d4af37;
+      background-color: #1a1a1a;
+      color: #fff;
+    }
+
+    button {
+      margin-top: 30px;
+      width: 100%;
+      padding: 15px;
+      background-color: #bfa14d;
+      color: #1a1a1a;
+      font-size: 18px;
+      font-weight: 700;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+      box-shadow: 0 0 10px #bfa14d99;
+    }
+
+    button:hover {
+      background-color: #d4af37;
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #d4af37;
+    }
+
+    @media (max-width: 600px) {
+      .contact-form {
+        padding: 30px 25px;
+        min-height: auto;
+      }
+
+      .contact-form h2 {
+        font-size: 32px;
+        margin-bottom: 25px;
+      }
+
+      label {
+        font-size: 16px;
+        margin: 15px 0 6px;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      textarea {
+        font-size: 14px;
+        padding: 12px;
+      }
+
+      button {
+        font-size: 16px;
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contact-form">
+    <h2>Contact Me</h2>
+    <form id="contactForm" action="/submit-contact" method="POST">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required placeholder="Enter your full name" />
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required placeholder="Enter your email address" />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required placeholder="Write your message here"></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+
+</body>
+</html>

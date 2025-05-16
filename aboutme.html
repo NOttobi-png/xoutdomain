@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Me - Sarvesh P Jothy</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0d0d0d 0%, #2a2a2a 70%, #bfa14d 100%);
+      color: #d4d4d4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+      box-sizing: border-box;
+    }
+
+    .container {
+      max-width: 900px;
+      background: rgba(30, 30, 30, 0.85);
+      border-radius: 15px;
+      box-shadow: 0 0 20px 5px rgba(191, 161, 77, 0.7);
+      padding: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .photo {
+      flex: 1 1 280px;
+      max-width: 280px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 15px 3px rgba(191, 161, 77, 0.8);
+    }
+
+    .photo img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .text {
+      flex: 2 1 500px;
+      color: #f5deb3; /* soft gold */
+    }
+
+    .text h1 {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+      color: #d4af37; /* gold */
+      text-shadow: 1px 1px 4px #000000a0;
+    }
+
+    .text p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+      color: #ccc;
+      text-shadow: 1px 1px 2px #000000a0;
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        flex-direction: column;
+        padding: 30px 20px;
+      }
+
+      .photo, .text {
+        max-width: 100%;
+        flex: 1 1 100%;
+      }
+
+      .text h1 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+
+      .text p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="photo">
+      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?fit=crop&w=600&q=80" alt="Web developer working on laptop" />
+    </div>
+    <div class="text">
+      <h1>About Me</h1>
+      <p>
+        My name is <strong>Sarvesh P Jothy</strong>, and I hail from Kerala. I completed my 12th-grade education in Computer Science at PM Shri Jawahar Navodaya Vidyalaya, Thrissur. I am well-versed in various programming languages and technologies including HTML, JavaScript, CSS, Python, MySQL, and MongoDB.
+      </p>
+      <p>
+        Alongside my passion for technology, I am also a dedicated athlete and a national-level football player, balancing both academics and sports with equal enthusiasm and commitment.
+      </p>
+      <p>
+        I am deeply passionate about web development and technology. I enjoy crafting interactive and user-friendly websites that solve real-world problems. Exploring new tools, frameworks, and coding techniques excites me, and I continuously strive to improve my skills. Web development allows me to blend creativity with logic, and I love turning ideas into functional, beautiful digital experiences.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
