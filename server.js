@@ -11,8 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
-mongoose.connect('mongodb+srv://iamnotjoby:sarvesh@cluster0.c5y6ihi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-'
+mongoose.connect('mongodb+srv://iamnotjoby.sarveshacluster9.c5y6ihi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster9')
   
   , {
   useNewUrlParser: true,
